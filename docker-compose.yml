@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  db:
+  site:
     build: .
     restart: always
     volumes:
