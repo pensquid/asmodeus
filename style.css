@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,700&display=swap');
+
+body {
+  margin: 0 auto;
+  padding: 10px;
+  font-family: 'Overpass Mono', monospace;
+  background: #000000;
+  color: #ffffff;
+  max-width: 1000px;
+}
+
+input {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  background: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+input, .view-tiles a {
+  box-sizing: border-box;
+  border: 1px solid #1d1d1d;
+  padding: 10px 20px;
+}
+
+#logo {
+  height: 1em;
+  vertical-align: top;
+}
+
+#logo:hover {
+  filter: brightness(0.8);
+}
+
+h1, p {
+  margin: 20px 0;
+}
+
+#title {
+  margin-bottom: 52px;
+}
+
+#support {
+  margin: 0;
+  margin-top: 52px;
+}
+
+.view-tiles {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  list-style-type: none;
+  grid-gap: 10px;
+}
+
+.view-tiles a {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-tiles a:hover {
+  background: #073c5a;
+}
+
+.highlight {
+  background: #662a67;
+}
+
+a {
+  color: #2bceff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.date, .size {
+  display: none;
+}
+
+::selection {
+  background: #2bceff;
+  color: #000000;
+}

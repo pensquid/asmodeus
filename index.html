@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'> 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='shortcut icon' href='/favicon.png'>
+    <link rel='shortcut icon' href='/favicon.png'>
+    <title>PwnStore - {directory}</title>
+    <style>{style}</style>
+  </head>
+  <body>
+    <input id='search' type='text' placeholder='Search' autocomplete='off'>
+    <h1 id='title'><a href='/'><img src='/favicon.png' id='logo'></a>{linked-path}</h1>
+
+    {files}
+
+    <p id='support'>
+      This site is run by <a href='https://pwnsquad.net/' target='_blank'>PwnSquad</a> for free to help you. We would appreciate it if you could spare a dime and <a href='https://teespring.com/stores/pwnsquad' target='_blank'>support us</a> so we can continue offering awesome things to our community members.
+    </p>
+
+    <script>
+      const searchElement = document.getElementById('search')
+      const linkElements = document.getElementById('files').getElementsByTagName('a')
+
+      const search = () => {
+        const searchFor = searchElement.value.toLowerCase()
+        for (let link of [...linkElements]) {
+          const searchIn = link.innerText.toLowerCase()
+          if (searchIn === '..') return
+          link.classList.toggle('highlight', searchFor.length && searchIn.includes(searchFor))
+        }
+      }
+
+      searchElement.addEventListener('keyup', search)
+      searchElement.addEventListener('change', search)
+    </script>
+  </body>
+</html>

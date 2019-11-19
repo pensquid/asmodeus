@@ -1,0 +1,23 @@
+{
+  "name": "runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "finalhandler": "^1.1.2",
+    "mime": "^2.4.4",
+    "serve-index": "^1.9.1",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

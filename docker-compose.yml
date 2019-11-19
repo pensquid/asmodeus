@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  db:
+    build: .
+    restart: always
+    volumes:
+      - $FILES_PATH:/files
+    ports:
+      - 8001:3000
