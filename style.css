@@ -20,7 +20,7 @@ input {
 
 input, .view-tiles a {
   box-sizing: border-box;
-  border: 1px solid #1d1d1d;
+  border: 1px solid #272727;
   padding: 10px 20px;
 }
 
@@ -50,12 +50,13 @@ h1, p {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   list-style-type: none;
   grid-gap: 10px;
 }
 
 .view-tiles a {
+  height: 100%;
   display: flex;
   word-wrap: break-word;
   flex-direction: column;
