@@ -50,7 +50,7 @@
         const searchFor = searchElement.value.toLowerCase()
         for (let link of [...linkElements]) {
           const searchIn = link.innerText.toLowerCase()
-          if (searchIn === '..') return
+          if (searchIn === '..') continue
           link.classList.toggle('highlight', searchFor.length && searchIn.includes(searchFor))
         }
       }
