@@ -1,4 +1,4 @@
-const finalhandler = require('finalhandler')
+const handler = require('./handler')
 const http = require('http')
 const serveIndex = require('serve-index')
 const serveStatic = require('serve-static')
@@ -11,7 +11,7 @@ const index = serveIndex('files', {
 })
 
 const server = http.createServer((req, res) => {
-  const done = finalhandler(req, res)
+  const done = handler(req, res)
   
   public(req, res, (err) => {
     if (err) return done(err)
