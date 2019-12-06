@@ -8,6 +8,6 @@ services:
       - $FILES_PATH:/files
     environent:
       - ALGOLIA_ID
-      - ALGOLIA_TOKEN
+      - ALGOLIA_KEY
     ports:
       - 8001:3000
