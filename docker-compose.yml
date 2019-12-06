@@ -6,7 +6,7 @@ services:
     restart: always
     volumes:
       - $FILES_PATH:/files
-    environent:
+    environment:
       - ALGOLIA_ID
       - ALGOLIA_KEY
     ports:
