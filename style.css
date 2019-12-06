@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Overpass+Mono:400,700&display=swap);
+
+:root {
+  --primary: #2bceff;
+}
+
 body {
   margin: 0 auto;
   padding: 10px;
@@ -83,7 +88,7 @@ input[type=search]::-webkit-search-results-decoration {
 
 a {
   text-decoration: none;
-  color: #2bceff
+  color: var(--primary)
 }
 
 a:hover {
@@ -145,11 +150,10 @@ mark {
   height: 100%;
   display: flex;
   word-wrap: break-word;
-  flex-direction: column;
-  color: #2bceff
+  flex-direction: column
 }
 
 ::selection {
-  background: #2bceff;
+  background: var(--primary);
   color: #000
 }
