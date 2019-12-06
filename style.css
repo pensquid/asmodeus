@@ -81,6 +81,15 @@ input[type=search]::-webkit-search-results-decoration {
   margin-bottom: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: #2bceff
+}
+
+a:hover {
+  text-decoration: underline
+}
+
 .ais-Hits {
   margin: 0;
   padding: 0;
@@ -91,6 +100,10 @@ input[type=search]::-webkit-search-results-decoration {
   margin-bottom: 20px;
   height: 100%;
   word-wrap: break-word
+}
+
+.ais-Hits-item 1 {
+  color: #fff
 }
 
 .ais-Hits-item h2 {
@@ -113,15 +126,6 @@ input[type=search]::-webkit-search-results-decoration {
 mark {
   background: #662a67;
   color: #ffffff
-}
-
-a {
-  text-decoration: none;
-  color: #fff
-}
-
-a:hover {
-  text-decoration: underline
 }
 
 [hidden] {
