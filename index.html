@@ -48,6 +48,21 @@
     <script>
       const searchClient = algoliasearch('{algolia-id}', '{algolia-key}')
 
+      const entityMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;',
+        '`': '&#x60;',
+        '=': '&#x3D;'
+      }
+
+      const escapeHtml = (string) => {
+        return string.replace(/[&<>"'`=\/]/g, (s) => entityMap[s])
+      }
+
       const search = instantsearch({
         indexName: 'Files',
         searchFunction: (helper) => {
@@ -72,7 +87,7 @@
           templates: {
             item: (hit) => `
               <article>
-                <a href='${hit.file}'>
+                <a href='${escapeHtml(hit.file)}'>
                   <h2>
                     ${instantsearch.highlight({ attribute: 'title', hit })}
                   </h2>
