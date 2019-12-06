@@ -6,5 +6,8 @@ services:
     restart: always
     volumes:
       - $FILES_PATH:/files
+    environent:
+      - ALGOLIA_ID
+      - ALGOLIA_TOKEN
     ports:
       - 8001:3000
