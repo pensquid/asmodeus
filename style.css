@@ -1,48 +1,131 @@
-@import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,700&display=swap');
-
+@import url(https://fonts.googleapis.com/css?family=Overpass+Mono:400,700&display=swap);
 body {
   margin: 0 auto;
   padding: 10px;
   font-family: 'Overpass Mono', monospace;
-  background: #000000;
-  color: #ffffff;
-  max-width: 1000px;
+  background: #000;
+  color: #fff;
+  max-width: 1000px
 }
 
+button,
 input {
   display: block;
   font-family: inherit;
   font-size: inherit;
   background: inherit;
-  color: inherit;
-  width: 100%;
+  color: inherit
 }
 
-input, .view-tiles a {
+svg {
+  fill: currentColor;
+  height: 1rem;
+  width: 1rem
+}
+
+.view-tiles a,
+button,
+input {
   box-sizing: border-box;
   border: 1px solid #272727;
-  padding: 10px 20px;
+  padding: 10px 20px
+}
+
+button {
+  cursor: pointer;
+  display: flex;
+  align-items: center
+}
+
+.view-tiles a:hover,
+button:hover {
+  background: #073c5a
 }
 
 #logo {
   height: 1em;
-  vertical-align: top;
+  vertical-align: top
 }
 
 #logo:hover {
-  filter: brightness(0.8);
+  filter: brightness(.8)
 }
 
-h1, p {
-  margin: 20px 0;
-}
-
-#title {
-  margin-bottom: 52px;
+h1,
+h2,
+p {
+  margin: 20px 0
 }
 
 #support {
-  margin-top: 52px;
+  margin-top: 52px
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none
+}
+
+.ais-SearchBox-form {
+  display: flex;
+  margin-bottom: 40px
+}
+
+.ais-SearchBox-input {
+  flex: 1
+}
+
+#hits {
+  margin-bottom: 20px;
+}
+
+.ais-Hits {
+  margin: 0;
+  padding: 0;
+  list-style-type: none
+}
+
+.ais-Hits-item {
+  margin-bottom: 20px;
+  height: 100%;
+  word-wrap: break-word
+}
+
+.ais-Hits-item h2 {
+  font-size: 1rem;
+}
+
+.ais-Hits-item h2, .ais-Hits-item p {
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.dull {
+  color: #c0ccc7
+}
+
+.superdull {
+  color: #4f5454
+}
+
+mark {
+  background: #662a67;
+  color: #ffffff
+}
+
+a {
+  text-decoration: none;
+  color: #fff
+}
+
+a:hover {
+  text-decoration: underline
+}
+
+[hidden] {
+  display: none
 }
 
 .view-tiles {
@@ -51,7 +134,7 @@ h1, p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   list-style-type: none;
-  grid-gap: 10px;
+  grid-gap: 10px
 }
 
 .view-tiles a {
@@ -59,30 +142,10 @@ h1, p {
   display: flex;
   word-wrap: break-word;
   flex-direction: column;
-}
-
-.view-tiles a:hover {
-  background: #073c5a;
-}
-
-.highlight {
-  background: #662a67;
-}
-
-a {
-  color: #2bceff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.date, .size {
-  display: none;
+  color: #2bceff
 }
 
 ::selection {
   background: #2bceff;
-  color: #000000;
+  color: #000
 }

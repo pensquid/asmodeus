@@ -30,33 +30,64 @@
     <meta name='og:type' content='website'>
   </head>
   <body>
-    <input id='search' aria-label='Search files' type='text' placeholder='Search' autocomplete='off'>
+    <div id='searchbox'></div>
     <h1 id='title'><a href='/'><img src='/favicon.png' id='logo' alt='Home'></a>{linked-path}</h1>
+    <div id='hits'></div>
 
     {files}
 
     <p id='support'>
-      This site is run by <a href='https://pwnsquad.net/' target='_blank'>PwnSquad</a> for free to help you. We would appreciate it if you could spare a dime and <a href='https://teespring.com/stores/pwnsquad' target='_blank'>support us</a> so we can continue offering awesome things to our community members.
+      This site is run by <a href='https://pwnsquad.net/' target='_blank'>PwnSquad</a> for free for your benefit. We would appreciate it if you could spare a dime and <a href='https://teespring.com/stores/pwnsquad' target='_blank'>support us</a> so we can continue offering awesome things to our community members.
     </p>
     <p>
       We have zero tolerance for copyrighted material available on this website. Many of our content comes from external sources and we are not able to verify the legality of everything. If you come across something on PwnStore that shouldn't be there, please reach out to <a href='mailto:hi@kognise.dev'>contact@pwnsquad.net</a> with the full URL of the file and we will take it down promptly.
     </p>
 
+    <script src='https://cdn.jsdelivr.net/npm/algoliasearch@3.35.1/dist/algoliasearchLite.min.js' integrity='sha256-5rOQwvvJdM9oDYQYCGzaJuuTy6SUALjma3OtzEGyJM0=' crossorigin='anonymous'></script>
+    <script src='https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js' integrity='sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=' crossorigin='anonymous'></script>
     <script>
-      const searchElement = document.getElementById('search')
-      const linkElements = document.getElementById('files').getElementsByTagName('a')
+      const searchClient = algoliasearch('{algolia-id}', '{algolia-key}')
 
-      const search = () => {
-        const searchFor = searchElement.value.toLowerCase()
-        for (let link of [...linkElements]) {
-          const searchIn = link.innerText.toLowerCase()
-          if (searchIn === '..') continue
-          link.classList.toggle('highlight', searchFor.length && searchIn.includes(searchFor))
-        }
-      }
+      const search = instantsearch({
+        indexName: 'Files',
+        searchFunction: (helper) => {
+          const container = document.querySelector('#hits')
+          if (helper.state.query === '') {
+            container.style.display = 'none'
+          } else {
+            container.style.display = ''
+          }
+          helper.search()
+        },
+        searchClient
+      })
 
-      searchElement.addEventListener('keyup', search)
-      searchElement.addEventListener('change', search)
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: '#searchbox'
+        }),
+
+        instantsearch.widgets.hits({
+          container: '#hits',
+          templates: {
+            item: (hit) => `
+              <article>
+                <a href='${hit.file}'>
+                  <h2>
+                    ${instantsearch.highlight({ attribute: 'title', hit })}
+                  </h2>
+                  <p class='dull'>
+                    ${instantsearch.snippet({ attribute: 'text', hit })}
+                  </p>
+                  <p class='superdull'>${hit.file}</p>
+                </a>
+              </article>
+            `
+          }
+        })
+      ])
+
+      search.start()
     </script>
   </body>
 </html>
