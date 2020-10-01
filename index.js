@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const handler = require('./handler')
 const http = require('http')
 const serveIndex = require('serve-index')
@@ -37,8 +39,8 @@ const createHtmlFileList = (files, dir) => {
 }
 
 const public = serveStatic('public')
-const serve = serveStatic('files', { index: false })
-const index = serveIndex('files', {
+const serve = serveStatic(process.env.ARCHIVE_PATH, { index: false })
+const index = serveIndex(process.env.ARCHIVE_PATH, {
   stylesheet: './style.css',
   template: (locals, callback) => {
     fs.readFile('./index.html', 'utf8', (err, str) => {
@@ -69,4 +71,4 @@ const server = http.createServer((req, res) => {
   })
 })
 
-server.listen(3000)
+server.listen(process.env.PORT ? parseInt(process.env.PORT) : 3000, () => console.log('Server started'))

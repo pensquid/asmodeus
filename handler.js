@@ -1,6 +1,5 @@
 const onFinished = require('on-finished')
 const statuses = require('statuses')
-const unpipe = require('unpipe')
 const getErrorPage = require('./getErrorPage')
 
 const getErrorHeaders = (err) => {
@@ -74,7 +73,7 @@ const send = (req, res, status, headers, message) => {
     return
   }
 
-  unpipe(req)
+  req.unpipe()
 
   onFinished(req, write)
   req.resume()
