@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const handler = require('./handler')
+const limiter = require('./limiter')
 const http = require('http')
 const serveIndex = require('serve-index')
 const serveStatic = require('serve-static')
@@ -59,9 +60,17 @@ const index = serveIndex(process.env.ARCHIVE_PATH, {
   }
 })
 
-const server = http.createServer((req, res) => {
-  const done = handler(req, res)
-  
+
+const rateLimiter = limiter({
+  delay: 100,
+  maxDelay: 1000,
+  delayThreshold: 100,
+  timeout: 60 * 1000
+})
+
+const server = http.createServer(async (req, res) => {
+  await rateLimiter(req, res)
+  const done = await handler(req, res)
   public(req, res, (err) => {
     if (err) return done(err)
     serve(req, res, (err) => {
