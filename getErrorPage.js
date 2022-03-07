@@ -12,21 +12,21 @@ module.exports = (code, url) => {
     <link rel='shortcut icon' href='/favicon.png'>
     <title>Error ${code}</title>
     <meta name='description' content='A huge collection of technology-related files containing whatever knowledge you need, whenever you need it.'>
-    <meta name='image' content='https://asmodeus.pwnsquad.net/favicon.png'>
+    <meta name='image' content='https://asmodeus.pensquid.net/favicon.png'>
 
     <meta itemprop='name' content='Asmodeus - Error ${code}'>
     <meta itemprop='description' content='A huge collection of technology-related files containing whatever knowledge you need, whenever you need it.'>
-    <meta itemprop='image' content='https://asmodeus.pwnsquad.net/favicon.png'>
+    <meta itemprop='image' content='https://asmodeus.pensquid.net/favicon.png'>
 
     <meta name='twitter:card' content='summary'>
     <meta name='twitter:title' content='Error ${code}'>
     <meta name='twitter:description' content='A huge collection of technology-related files containing whatever knowledge you need, whenever you need it.'>
-    <meta name='twitter:image:src' content='https://asmodeus.pwnsquad.net/favicon.png'>
+    <meta name='twitter:image:src' content='https://asmodeus.pensquid.net/favicon.png'>
 
     <meta name='og:title' content='Error ${code}'>
     <meta name='og:description' content='A huge collection of technology-related files containing whatever knowledge you need, whenever you need it.'>
-    <meta name='og:image' content='https://asmodeus.pwnsquad.net/favicon.png'>
-    <meta name='og:url' content='https://asmodeus.pwnsquad.net${url}'>
+    <meta name='og:image' content='https://asmodeus.pensquid.net/favicon.png'>
+    <meta name='og:url' content='https://asmodeus.pensquid.net${url}'>
     <meta name='og:site_name' content='Asmodeus'>
     <meta name='og:locale' content='en_US'>
     <meta name='og:type' content='website'>
